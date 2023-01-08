@@ -239,7 +239,7 @@ steps:
       - script: |
           set -e
           VSCODE_MIXIN_PASSWORD="$(github-distro-mixin-password)" \
-            yarn gulp vscode-linux-$(VSCODE_ARCH)-min-ci
+            yarn gulp vscode-linux-$(VSCODE_ARCH)-ci
         displayName: Build
 
   - ${{ if ne(parameters.VSCODE_QUALITY, 'oss') }}:
@@ -252,9 +252,9 @@ steps:
       - script: |
           set -e
           VSCODE_MIXIN_PASSWORD="$(github-distro-mixin-password)" \
-            yarn gulp vscode-reh-linux-$(VSCODE_ARCH)-min-ci
+            yarn gulp vscode-reh-linux-$(VSCODE_ARCH)-ci
           VSCODE_MIXIN_PASSWORD="$(github-distro-mixin-password)" \
-            yarn gulp vscode-reh-web-linux-$(VSCODE_ARCH)-min-ci
+            yarn gulp vscode-reh-web-linux-$(VSCODE_ARCH)-ci
         displayName: Build Server
 
   - ${{ if eq(parameters.VSCODE_QUALITY, 'oss') }}:
